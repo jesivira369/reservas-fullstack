@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 import { Espacio } from '../../espacio/entities/espacio.entity';
 import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 
@@ -8,7 +14,11 @@ export class Reserva {
   id!: number;
 
   @ManyToOne(() => Espacio, { eager: true })
+  @JoinColumn({ name: 'espacioId' })
   espacio!: Espacio;
+
+  @Column()
+  espacioId!: number;
 
   @Column()
   @IsNotEmpty()
