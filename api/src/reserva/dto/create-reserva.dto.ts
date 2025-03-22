@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, Matches } from 'class-validator';
 
 export class CreateReservaDto {
   @IsNotEmpty()
@@ -9,7 +9,9 @@ export class CreateReservaDto {
   espacioId!: number;
 
   @IsNotEmpty()
-  @IsString()
+  @Matches(/^\d{4}-\d{2}-\d{2}$/, {
+    message: 'La fecha debe estar en formato ISO (YYYY-MM-DD)',
+  })
   fechaReserva!: string;
 
   @IsNotEmpty()

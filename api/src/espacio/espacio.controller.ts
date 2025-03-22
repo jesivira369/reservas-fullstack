@@ -15,4 +15,8 @@ import { UpdateEspacioDto } from './dto/update-espacio.dto';
 @Controller('espacios')
 export class EspacioController implements CrudController<Espacio> {
   constructor(public service: EspacioService) {}
+
+  get base(): CrudController<Espacio> {
+    return this;
+  }
 }
