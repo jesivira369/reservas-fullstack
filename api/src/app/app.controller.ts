@@ -4,6 +4,6 @@ import { Controller, Get } from '@nestjs/common';
 export class AppController {
   @Get('hello')
   getHello() {
-    return { message: '¡Hola desde el backend con NestJS!' };
+    return { message: 'Hello API' };
   }
 }
