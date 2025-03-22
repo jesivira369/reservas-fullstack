@@ -1,17 +1,19 @@
-version: '3.8'
+version: '3.9'
+
 services:
-  postgres:
-    image: postgres:15
-    container_name: reserva_postgres
+  mysql:
+    image: mysql:8
+    container_name: reserva_mysql
     restart: always
     environment:
-      POSTGRES_USER: reserva_user
-      POSTGRES_PASSWORD: reserva_pass
-      POSTGRES_DB: reserva_db
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: reserva_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
     ports:
-      - "5432:5432"
+      - "3307:3306"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - mysql_data:/var/lib/mysql
 
 volumes:
-  pgdata:
+  mysql_data:
