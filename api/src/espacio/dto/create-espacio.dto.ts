@@ -1,13 +1,14 @@
 import {
-  IsEnum,
   IsNotEmpty,
-  IsNumber,
   IsOptional,
   IsString,
-  Max,
+  IsEnum,
   MaxLength,
   Min,
+  Max,
+  IsNumber,
 } from 'class-validator';
+import { UbicacionEspacio } from '../enums/ubicacion.enum';
 
 export class CreateEspacioDto {
   @IsNotEmpty()
